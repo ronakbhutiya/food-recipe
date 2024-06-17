@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #2d1d0f;
+  color: #fff;
+}
+header nav {
+  background-color: #212121;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+header nav h1,
+h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+header nav form {
+  display: flex;
+  justify-content: center;
+}
+form input[type="text"] {
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+form input[type="text"],
+button[type="submit"] {
+  border: none;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+/* main section */
+.recipe-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 4rem;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 2rem;
+  place-items: center;
+}
+.recipe {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+  color: #000;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.5rem 1rem rgba(78, 73, 73, 0.1),
+    -0.5rem -0.5rem -1rem rgba(34, 34, 34, 0.5);
+  cursor: pointer;
+}
+.recipe img {
+  height: 30rem;
+}
+.recipe h3 {
+  font-size: 2.4rem;
+  margin-block: 0.5rem;
+}
+.recipe p {
+  font-size: 2rem;
+  color: #4a4a4a;
+  margin: 5px 0;
+}
+.recipe span {
+  font-weight: 700;
+}
+
+.recipe button {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  margin: 1.8rem auto;
+  background-color: #f44336;
+  color: #fff;
+}
+
+form button[type="submit"] {
+  background-color: #f44336;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+form button[type="submit"]:hover,
+.recipe button:hover {
+  background-color: #ff5c5c;
+}
+.recipe-details {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #694c2f;
+  border-radius: 1.2rem;
+  width: 40%;
+  height: 60%;
+  font-size: 2rem;
+}
+@media (max-width: 37.5em) {
+  header nav form {
+    width: 80%;
+    margin-top: 2rem;
+  }
+  header nav {
+    flex-direction: column;
+  }
+}
