@@ -65,7 +65,8 @@ button[type="submit"] {
   cursor: pointer;
 }
 .recipe img {
-  height: 30rem;
+  width: 100%;
+  /* overflow: hidden; */
 }
 .recipe h3 {
   font-size: 2.4rem;
@@ -118,8 +119,14 @@ form button[type="submit"]:hover,
   header nav form {
     width: 80%;
     margin-top: 2rem;
+    gap: 2rem;
+    align-items: center;
+    flex-direction: column;
   }
   header nav {
     flex-direction: column;
+  }
+  .recipe-container {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
 }

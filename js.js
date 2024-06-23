@@ -11,6 +11,7 @@ const fetchRecipe = async (query) => {
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${query} `
   );
   const respose = await data.json();
+  // console.log(respose);
   recipe_container.innerHTML = "";
   respose.meals.forEach((meal) => {
     const recipeDiv = document.createElement("div");
@@ -32,31 +33,35 @@ const fetchRecipe = async (query) => {
     recipe_container.appendChild(recipeDiv);
   });
 };
-const fetchIngredents = (meal) => {
-  let ingredientsList = "";
-  for (i = 1; i <= 20; i++) {
-    const ingredient = meal[`strIngredient${i}`];
-    if (ingredient) {
-      const measure = meal[`strMeasure${i}`];
-      ingredientsList += `<li>${measure} ${ingredient}</li>`;
-    } else {
-      break;
-    }
-  }
-  return ingredientsList;
-};
-const opemRecipePop = (meal) => {
-  recipeDetailsContent.innerHTML = `
-  <h2>${meal.strMeal}</h2>
-  <h3>Ingredients:</h3>
-  <ul>${fetchIngredents(meal)}</ul>
-  
-  `;
-  recipeDetailsContent.parentElement.style.display = "block";
-};
 searchbtn.addEventListener("click", (e) => {
   e.preventDefault();
   const searchInput = searchBox.value.trim();
   fetchRecipe(searchInput);
-  //   console.log("rnk");
 });
+// const fetchIngredents = (meal) => {
+//   let ingredientsList = "";
+//   for (i = 1; i <= 20; i++) {
+//     const ingredient = meal[`strIngredient${i}`];
+//     if (ingredient) {
+//       const measure = meal[`strMeasure${i}`];
+//       ingredientsList += `<li>${measure} ${ingredient}</li>`;
+//     } else {
+//       break;
+//     }
+//   }
+//   return ingredientsList;
+// };
+// const opemRecipePop = (meal) => {
+//   recipeDetailsContent.innerHTML = `
+//   <h2 class="recipeName">${meal.strMeal}</h2>
+//   <h3>Ingredients:</h3>
+//   <ul class=""ingredentlist>${fetchIngredents(meal)}</ul>
+//     <div>
+//     <h3>Instruction:</h3>
+//     <p class="recipeinstructions">${meal.strInstructions}</p>
+//   </div>
+
+//   `;
+
+//   recipeDetailsContent.parentElement.style.display = "block";
+// };
